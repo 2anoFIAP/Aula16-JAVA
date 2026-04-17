@@ -31,8 +31,8 @@ public class Gestante {
     public void setDataDaGestacao(LocalDate dataDaGestacao) {
         try {
             LocalDate dataAtual = LocalDate.now();
-            LocalDate noveMesesAntes = LocalDate.now().minusMonths(9);
-            if (!dataDaGestacao.isBefore(noveMesesAntes) && !dataDaGestacao.isAfter(dataAtual)) {
+            Period periodo = Period.between(dataDaGestacao, dataAtual);
+            if (periodo.getYears() == 0 && periodo.getMonths() <= 9) {
                 this.dataDaGestacao = dataDaGestacao;
             } else {
                 throw new Exception("ERRO: Data da Gestacao fora do periodo real.");
