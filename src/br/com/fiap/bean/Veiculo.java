@@ -34,7 +34,7 @@ public class Veiculo {
         this.dataCompra = dataCompra;
     }
 
-    public double getValorCompra(){
+    public double getValorCompra() {
         return valorCompra;
     }
 
@@ -51,7 +51,7 @@ public class Veiculo {
     public double calcularValorAtual() {
         int idade = calcularIdadeVeicular();
         if (idade > 9) {
-            JOptionPane.showMessageDialog(null,"ERRO: IDade do veiculo (" + idade + " anos) excede o limite de 9 anos.");
+            JOptionPane.showMessageDialog(null, "ERRO: IDade do veiculo (" + idade + " anos) excede o limite de 9 anos.");
             System.exit(0);
         } else {
             double taxaDepreciado = idade * 0.10;
