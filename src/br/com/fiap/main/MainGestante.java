@@ -14,12 +14,13 @@ public class MainGestante {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         try {
             nome = JOptionPane.showInputDialog("Informe seu nome: ");
-            aux = JOptionPane.showInputDialog("Insira a data do inicio da sua gestacao (Ex: 10/07/2025");
+            aux = JOptionPane.showInputDialog("Insira a data do inicio da sua gestacao (Ex: dia/mes/ano)");
             data = LocalDate.parse(aux, dtf);
 
             gestante1 = new Gestante(nome, data);
             JOptionPane.showMessageDialog(null, String.format("Data da gestacao: %s", gestante1.getDataDaGestacao()));
-            JOptionPane.showMessageDialog(null, String.format("Nome: %s\nData da Gestacao: %s\nTempo de gestacao: %s", gestante1.getNome(), gestante1.getDataDaGestacao(), gestante1.tempoDeGestacao()));
+            JOptionPane.showMessageDialog(null, String.format("Nome: %s\nData da Gestacao: %s\nTempo de gestacao: %d meses", gestante1.getNome(), gestante1.getDataDaGestacao().format(dtf), gestante1.tempoDeGestacao()));
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
